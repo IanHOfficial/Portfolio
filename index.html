@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyName | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>MyName</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<div id="projectModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
+    <div id="modalMedia">
+      <!-- These containers will be injected with images and videos -->
+      <div id="modalImages" class="media-group">
+        <h3>Images</h3>
+        <div class="media-grid" id="imageContainer"></div>
+      </div>
+      <div id="modalVideos" class="media-group">
+        <h3>Videos</h3>
+        <div class="media-grid" id="videoContainer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <main>
+    <!-- About Section -->
+    <section id="about" class="container section">
+      <h2>About Me</h2>
+      <div class="info">
+        <p><strong>Name:</strong> Ian Howerton</p>
+        <p><strong>Phone:</strong> (559) 288-1617</p>
+        <p><strong>Email:</strong> <a href="mailto:ian.howerton1617@gmail.com">ian.howerton1617@gmail.com</a></p>
+      </div>
+
+      <h3>Skills</h3>
+      <ul class="skills">
+        <li>Problem Solving</li>
+        <li>Flexibility</li>
+        <li>Efficient Multitasking</li>
+        <li>Communication</li>
+        <li>Organization</li>
+        <li>Clear Minded Under Stress</li>
+        <li>Critical Thinking</li>
+        <li>Quick Learner</li>
+        <li>Advanced Computer Skills</li>
+      </ul>
+
+      <h3>Experience</h3>
+      <h4>Software Engineering / Programming (2019 – 2025)</h4>
+      <ul>
+        <li>Built web applications using JavaScript, React, and CSS, enhancing UI/UX for multiple projects.</li>
+        <li>Programmed C# tools for automation, improving efficiency in personal workflows.</li>
+        <li>Applied Python for mechanical and software-based projects currently being used in real practice.</li>
+        <li>Self-taught 6 programming languages (JavaScript, C#, Lua, React, HTML, Java), creating multiple personal projects.</li>
+      </ul>
+
+      <h4>Project Development & Leadership (2021 – 2023)</h4>
+      <ul>
+        <li>Co-Founded, marketed, and led development for an online gaming platform.</li>
+        <li>Generated $20,000+ in revenue via user subscriptions and digital services.</li>
+        <li>Led 5+ person team, coordinating development and operations.</li>
+        <li>Developed Lua-based features for 100+ concurrent users.</li>
+        <li>Optimized Windows server infrastructure with MySQL, achieving 99% uptime.</li>
+        <li>Expanded user base to 500+ active members through feature updates.</li>
+      </ul>
+
+      <h4>Police Explorers Program (Aug 2020 – Mar 2021)</h4>
+      <p>
+        Trained in real-life law enforcement scenarios with instructors and volunteer officers. Learned to remain calm under stress, adapt to dynamically changing situations, and think critically under pressure.
+      </p>
+
+      <h3>Education</h3>
+      <p><strong>Degree:</strong> (Add your degree or educational detail here)</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container section">
+        <h2>Projects</h2>
+        <div class="project-list">
+
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="container section">
+      <h2>Contact</h2>
+      <p>Feel free to reach out via email: <a href="mailto:ian.howerton1617@gmail.com">ian.howerton1617@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ian Howerton. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
