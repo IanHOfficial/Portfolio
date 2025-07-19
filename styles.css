@@ -328,6 +328,12 @@ nav ul li a {
     font-size: 15px;
   }
 
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   header .container {
     flex-direction: column;
     align-items: flex-start;
@@ -363,6 +369,17 @@ nav ul li a {
     max-height: 200px;
   }
 
+  #imageViewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(37, 37, 37, 0.342);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      flex-direction: column;
+  }
+
   #viewerImage {
     max-width: 90vw;
     max-height: 70vh;
@@ -374,10 +391,17 @@ nav ul li a {
     font-size: 2rem;
   }
 
-  .viewer-nav.left,
+  .viewer-nav.left {
+    left: -1rem;
+  }
+
   .viewer-nav.right {
-    font-size: 2rem;
-    padding: 0 0.5rem;
+    right: -1rem;
+  }
+
+  #viewerImage {
+    max-width: 90vw;
+    max-height: 70vh;
   }
 
   .skills {
