@@ -12,6 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
         { type: "image", src: "assets/project1/pic5.png" },
         { type: "video", src: "assets/project1/vid1.mp4" }
       ]
+    },
+    {
+      id: "project2",
+      title: "Mechanical Engineering Sun Tracker",
+      description: "The purpose of this project was to create a prototype tracker for a DIY solar panel that utilizes photoresistors and a low voltage motor. It works and tracks the light along the X axis currently, and I am looking to expand this to the Y axis also once I acquire more photoresistors.\n\nActual footage of it working will be added in the future.",
+      media: [
+        { type: "image", src: "assets/project2/pic1.png" },
+        { type: "image", src: "assets/project2/pic2.png" },
+      ]
     }
   ];
 
@@ -21,6 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const desc = document.getElementById("modalDescription");
   const media = document.getElementById("modalMedia");
   const closeBtn = document.querySelector(".close-btn");
+  const viewer = document.getElementById("imageViewer");
+  const viewerImage = document.getElementById("viewerImage");
+  const viewerClose = document.querySelector(".viewer-close");
+  const navLeft = document.querySelector(".viewer-nav.left");
+  const navRight = document.querySelector(".viewer-nav.right");
+  const imageCounter = document.getElementById("imageCounter");
+
+  let isViewingImage = false;
 
   // Populate project cards with only titles (description moved to modal)
   projects.forEach(proj => {
@@ -37,56 +54,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-function openModal(proj) {
-  console.log("Opening modal for project:", proj.title);
-  title.textContent = proj.title;
-  desc.textContent = proj.description;
-  media.innerHTML = "";
+  function openModal(proj) {
+    console.log("Opening modal for project:", proj.title);
+    title.textContent = proj.title;
+    desc.textContent = proj.description;
+    media.innerHTML = "";
 
-  const imageContainer = document.createElement("div");
-  imageContainer.className = "media-images";
+    const imageContainer = document.createElement("div");
+    imageContainer.className = "media-images";
 
-  const videoContainer = document.createElement("div");
-  videoContainer.className = "media-videos";
+    const videoContainer = document.createElement("div");
+    videoContainer.className = "media-videos";
 
-  let hasImages = false;
-  let hasVideos = false;
+    let hasImages = false;
+    let hasVideos = false;
 
-  proj.media.forEach(item => {
-    console.log("Adding media:", item.type, item.src);
-    if (item.type === "image") {
-      hasImages = true;
-      const img = document.createElement("img");
-      img.src = item.src;
-      img.alt = `${proj.title} Screenshot`;
-      imageContainer.appendChild(img);
-    } else if (item.type === "video") {
-      hasVideos = true;
-      const video = document.createElement("video");
-      video.src = item.src;
-      video.controls = true;
-      videoContainer.appendChild(video);
+    proj.media.forEach(item => {
+      if (item.type === "image") {
+        hasImages = true;
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = `${proj.title} Screenshot`;
+        imageContainer.appendChild(img);
+      } else if (item.type === "video") {
+        hasVideos = true;
+        const video = document.createElement("video");
+        video.src = item.src;
+        video.controls = true;
+        videoContainer.appendChild(video);
+      }
+    });
+
+    if (hasImages) {
+      const imgLabel = document.createElement("h4");
+      imgLabel.textContent = "Images";
+      media.appendChild(imgLabel);
+      media.appendChild(imageContainer);
+
+      // 💡 Add the image viewer click handler *here*
+      imageContainer.addEventListener("click", e => {
+        if (e.target.tagName === "IMG") {
+          const imgs = Array.from(imageContainer.querySelectorAll("img"));
+          const index = imgs.indexOf(e.target);
+          openImageViewer(index, imgs);
+          isViewingImage = true;
+        }
+      });
+    }
+
+    if (hasVideos) {
+      const vidLabel = document.createElement("h4");
+      vidLabel.textContent = "Videos";
+      media.appendChild(vidLabel);
+      media.appendChild(videoContainer);
+    }
+
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  viewer.addEventListener('click', function(e) {
+    if (e.target === viewer && isViewingImage) {
+      closeImageViewer();
     }
   });
-
-  if (hasImages) {
-    const imgLabel = document.createElement("h4");
-    imgLabel.textContent = "Images";
-    media.appendChild(imgLabel);
-    media.appendChild(imageContainer);
-  }
-
-  if (hasVideos) {
-    const vidLabel = document.createElement("h4");
-    vidLabel.textContent = "Videos";
-    media.appendChild(vidLabel);
-    media.appendChild(videoContainer);
-  }
-
-  modal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
-  console.log(modal.classList);
-}
 
   function closeModal() {
     modal.classList.add("hidden");
@@ -97,5 +128,46 @@ function openModal(proj) {
 
   modal.addEventListener("click", e => {
     if (e.target === modal) closeModal();
+  });
+
+  let currentImageIndex = 0;
+  let currentImages = [];
+
+  function openImageViewer(index, images) {
+    currentImageIndex = index;
+    currentImages = images;
+    viewerImage.src = images[currentImageIndex].src;
+    updateImageCounter();
+    viewer.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function updateImageCounter() {
+    imageCounter.textContent = `Image ${currentImageIndex + 1} of ${currentImages.length}`;
+  }
+
+  function closeImageViewer() {
+    viewer.classList.add("hidden");
+    document.body.style.overflow = "";
+    isViewingImage = false;
+  }
+
+  function showNextImage(dir) {
+    currentImageIndex = (currentImageIndex + dir + currentImages.length) % currentImages.length;
+    viewerImage.src = currentImages[currentImageIndex].src;
+    updateImageCounter();
+  }
+
+  viewerClose.addEventListener("click", closeImageViewer);
+  navLeft.addEventListener("click", () => showNextImage(-1));
+  navRight.addEventListener("click", () => showNextImage(1));
+
+  // Attach to image thumbnails
+  imageContainer.addEventListener("click", e => {
+    if (e.target.tagName === "IMG") {
+      const imgs = Array.from(imageContainer.querySelectorAll("img"));
+      const index = imgs.indexOf(e.target);
+      openImageViewer(index, imgs);
+    }
   });
 });

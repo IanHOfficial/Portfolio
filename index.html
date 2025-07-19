@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MyName | Portfolio</title>
+  <title>Ian Howerton | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <header>
     <div class="container">
-      <h1>MyName</h1>
+      <h1>@Ian Howerton | 2025</h1>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -21,24 +21,24 @@
     </div>
   </header>
 
-<div id="projectModal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <p id="modalDescription"></p>
-    <div id="modalMedia">
-      <!-- These containers will be injected with images and videos -->
-      <div id="modalImages" class="media-group">
-        <h3>Images</h3>
-        <div class="media-grid" id="imageContainer"></div>
-      </div>
-      <div id="modalVideos" class="media-group">
-        <h3>Videos</h3>
-        <div class="media-grid" id="videoContainer"></div>
+  <div id="projectModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div id="modalMedia">
+        <!-- These containers will be injected with images and videos -->
+        <div id="modalImages" class="media-group">
+          <h3>Images</h3>
+          <div class="media-grid" id="imageContainer"></div>
+        </div>
+        <div id="modalVideos" class="media-group">
+          <h3>Videos</h3>
+          <div class="media-grid" id="videoContainer"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
   <main>
     <!-- About Section -->
     <section id="about" class="container section">
@@ -59,7 +59,6 @@
         <li>Clear Minded Under Stress</li>
         <li>Critical Thinking</li>
         <li>Quick Learner</li>
-        <li>Advanced Computer Skills</li>
       </ul>
 
       <h3>Experience</h3>
@@ -81,13 +80,22 @@
         <li>Expanded user base to 500+ active members through feature updates.</li>
       </ul>
 
+      <h4>UNITY ENGINE GAME DEVELOPMENT & DESIGN (2023 – 2025)</h4>
+      <ul>
+        <li>Designed and implemented dynamic in-game UI systems using Unity's Canvas, UI Toolkit, and C# scripting.</li>
+        <li>Created 3D environments using terrain sculpting, lighting systems, and prefab management.</li>
+        <li>Integrated interactive UI components such as inventory panels, health bars, crafting menus, skill trees, and more.</li>
+        <li>Optimized performance for heavily cluttered scenes learning and using many methods to this day.</li>
+        <li>Used Unity's Animator and Animation Rigging tools to sync dynamically changing visual elements with game logic performed by the players.</li>
+      </ul>
+
       <h4>Police Explorers Program (Aug 2020 – Mar 2021)</h4>
       <p>
         Trained in real-life law enforcement scenarios with instructors and volunteer officers. Learned to remain calm under stress, adapt to dynamically changing situations, and think critically under pressure.
       </p>
 
       <h3>Education</h3>
-      <p><strong>Degree:</strong> (Add your degree or educational detail here)</p>
+      <p><strong>Degree:</strong> High School DIPLOMA | May 2023 | Yosemite Valley Chater School</p>
     </section>
 
     <!-- Projects Section -->
@@ -111,6 +119,14 @@
       <p>&copy; 2025 Ian Howerton. All rights reserved.</p>
     </div>
   </footer>
+
+  <div id="imageViewer" class="hidden">
+    <div id="imageCounter" class="image-counter"></div>
+    <span class="viewer-close">&times;</span>
+    <img id="viewerImage" src="" alt="Zoomed View">
+    <div class="viewer-nav left">&#10094;</div>
+    <div class="viewer-nav right">&#10095;</div>
+  </div>
 
   <script src="script.js"></script>
 </body>

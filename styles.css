@@ -17,7 +17,18 @@ body {
 /* Typography */
 h1, h2, h3, h4 {
   color: #f0f4f8;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+h4 {
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 150%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 a {
@@ -219,8 +230,85 @@ nav ul li a {
 .media-videos video {
   max-width: 100%;
   height: auto;
-  max-height: 500px;
+  max-height: 300px;
+  border: 2px solid rgba(255, 54, 54, 0.534);
   border-radius: 5px;
+}
+
+#imageViewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(168, 168, 168, 0.103);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  flex-direction: column;
+}
+
+.image-counter {
+  font-family:'Times New Roman', Times, serif;
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  z-index: 10002;
+  user-select: none;
+}
+
+#imageViewer.hidden {
+  display: none;
+}
+
+#viewerImage {
+  user-select: none;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+  z-index: 10002;
+}
+
+.viewer-close {
+  user-select: none;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10002;
+}
+
+.viewer-nav {
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  padding: 0 1rem;
+  user-select: none;
+  z-index: 10002;
+}
+
+.viewer-nav.left {
+  left: 2rem;
+}
+
+.viewer-nav.right {
+  right: 2rem;
+}
+
+.media-images img {
+  width: 260px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.media-images img:hover {
+  transform: scale(1.1);
 }
 
 
