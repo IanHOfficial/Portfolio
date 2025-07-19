@@ -93,12 +93,22 @@ function openModal(proj) {
 
     // 💡 Add the image viewer click handler *here*
     imageContainer.addEventListener("click", e => {
-      if (e.target.tagName === "IMG") {
-        const imgs = Array.from(imageContainer.querySelectorAll("img"));
-        const index = imgs.indexOf(e.target);
-        openImageViewer(index, imgs);
-        isViewingImage = true;
-      }
+        if (e.target.tagName === "IMG") {
+          if (window.innerWidth <= 768) {
+            document.querySelectorAll('#modalMedia img').forEach(img => {
+              img.style.cursor = 'pointer';
+              img.addEventListener('click', () => {
+                window.open(img.src, '_blank');
+              });
+            });
+          } else {
+            const imgs = Array.from(imageContainer.querySelectorAll("img"));
+            const index = imgs.indexOf(e.target);
+            openImageViewer(index, imgs);
+          }
+          
+          isViewingImage = true;
+        }
     });
   }
 
