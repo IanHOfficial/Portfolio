@@ -21,6 +21,24 @@ const projects = [
       { type: "image", src: "assets/project2/pic1.png" },
       { type: "image", src: "assets/project2/pic2.png" },
     ]
+  },
+  {
+    id: "project3",
+    title: "Unity - World Design",
+    description: "The purpose of this project was to improve my fine detail skills when it comes to creating good looking unity worlds.",
+    media: [
+      { type: "image", src: "assets/project3/pic1.png" },
+      { type: "image", src: "assets/project3/pic2.png" },
+      { type: "image", src: "assets/project3/pic3.png" },
+    ]
+  },
+  {
+    id: "project4",
+    title: "Unity - Simplified Grid Based Inventory System",
+    description: "Grid based inventory system that includes saving of each items space in the correct spot and its current rotation inside the inventory, as well as equiping items such as weapons or gear.",
+    media: [
+      { type: "video", src: "assets/project4/vid1.mp4" },
+    ]
   }
 ];
 
