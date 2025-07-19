@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Painter</title>
+  <link rel="stylesheet" href="painting.css" />
+</head>
+<body>
+  <div class="tips">
+    <p><strong>Tips:</strong> Press <kbd>C</kbd> to Clear, <kbd>Ctrl+Z</kbd> to Undo, <kbd>Ctrl+Shift+Z</kbd> to Redo, <kbd>+</kbd>/<kbd>-</kbd> to change brush size</p>
+  </div>
+
+  <div class="ui">
+    <input type="color" id="colorPicker" value="#00ffcc" title="Pick a color" />
+    <div class="brush-size-control">
+      <button id="decreaseBrush">−</button>
+      <span id="brushDisplay">1</span>
+      <button id="increaseBrush">+</button>
+    </div>
+
+    <button id="clearBtn" title="Clear">Clear</button>
+    <button id="saveBtn" title="Save">Save</button>
+  </div>
+
+  <canvas id="paintCanvas" width="724" height="724"></canvas>
+
+  <script src="painting.js"></script>
+</body>
+</html>

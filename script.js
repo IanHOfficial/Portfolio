@@ -1,6 +1,14 @@
 
 const projects = [
   {
+    id: "project0",
+    title: "Simple Pixel Painting Demo",
+    description: "Simple Pixel Painting Project To Hone My Skills With HTML, Javascript, and CSS",
+    media: [
+      { type: "html", src: "PixelPainting/pixelpainting.html" },
+    ]
+  },
+  {
     id: "project1",
     title: "Fictional 911 CAD System",
     description: "911 Call Management With Ability To Delete, Draw A GPS-Route, And View Officers On The Call, As Well As A Database Of Fake Names And Fake Civilian Records.",
@@ -20,16 +28,6 @@ const projects = [
     media: [
       { type: "image", src: "assets/project2/pic1.png" },
       { type: "image", src: "assets/project2/pic2.png" },
-    ]
-  },
-  {
-    id: "project3",
-    title: "Unity - World Design",
-    description: "The purpose of this project was to improve my fine detail skills when it comes to creating good looking unity worlds.",
-    media: [
-      { type: "image", src: "assets/project3/pic1.png" },
-      { type: "image", src: "assets/project3/pic2.png" },
-      { type: "image", src: "assets/project3/pic3.png" },
     ]
   },
   {
@@ -100,6 +98,23 @@ function openModal(proj) {
       video.src = item.src;
       video.controls = true;
       videoContainer.appendChild(video);
+    } else if (item.type === "html") {
+        const iframe = document.createElement("iframe");
+        iframe.src = item.src;
+        iframe.style.position = "relative"
+        iframe.style.marginTop = "-2%";
+        iframe.style.scale = 0.9;
+        iframe.style.width = "100%";
+        iframe.style.height = "900px";
+        iframe.style.border = "1px solid #ccc";
+        iframe.style.borderRadius = "8px";
+        iframe.loading = "lazy";
+
+        const label = document.createElement("h4");
+        label.textContent = "Live Demo";
+
+        media.appendChild(label);
+        media.appendChild(iframe);
     }
   });
 
