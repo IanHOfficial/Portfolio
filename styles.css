@@ -329,7 +329,7 @@ nav ul li a {
   }
 
   h1 {
-    font-size: 0.8rem;
+    font-size: 0.4rem;
     text-align: center;
   }
 
@@ -341,7 +341,7 @@ nav ul li a {
 
   nav ul {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.35rem;
     width: 100%;
   }
 
